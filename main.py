@@ -3,8 +3,6 @@
 import ast
 import subprocess
 import sys
-import tempfile
-import os
 
 class DetectThrowsException:
     def __init__(self, file_path: str):
@@ -97,5 +95,10 @@ class DetectThrowsException:
 
 # Demonstration
 if __name__ == "__main__":
-    # Test cases demonstrating the static + dynamic approach
-    # call them here
+    # Divide by zero test case
+    test_file = "test_files/divide_by_zero.py"
+    analyzer = DetectThrowsException(test_file)
+    result = analyzer.analyze()
+    print(f"Analysis results for {test_file}:")
+    print(f"Static findings: {result['static_findings']}")
+    print(f"Dynamic result: {result['dynamic_result']}")
