@@ -35,3 +35,12 @@ class NoExcept:
             except FileNotFoundError as e:
                 raise FileNotFoundError(f"Could not open {self.file}") from e
 ```
+
+## Undefined program
+
+If M throws an exception on input I, then P(I) is undefined.
+
+- P: Python program that takes I as an input as a string and return a string (SISO)
+- I: Input as a string
+- M: Main function
+
