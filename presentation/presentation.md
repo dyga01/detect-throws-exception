@@ -1,25 +1,16 @@
-# Presentation Content for the `detectThrowsException` problem
+# `detectThrowsException` Presentation
 
-## What is exception and throwing an exception?
+## Why is Exception Handling Difficult?
 
-Exception handling is the process of managing unexpected events (exceptions) occuring during
-a program's execution. It is a common practice to prevent the program from unexpected crashes.
-While it is a good way of storing code segments that can cause crashes, but writing efficient
-exception handling in a codebase is hard since we have to know the outcome of a code segment before
-we execute it that can lead to crashes. It is kind of predicting the future problem and because of that
-exception handling can be quite difficult.
+Exception handling is the process of managing unexpected events (exceptions) occuring during a program's execution. It is a common practice to prevent the program from unexpected crashes. While it is a good way of storing code segments that can cause crashes, but writing efficient exception handling in a codebase is hard since we have to know the outcome of a code segment before we execute it that can lead to crashes. It is kind of predicting the future problem and because of that exception handling can be quite difficult.
 
-On the other hand we have static analysis which can help in detecting bugs, vulnerabilites or even code
-smells that could lead to crashes. It is important to note that static analysis does not replace exception
-handling!
+On the other hand we have static analysis which can help in detecting bugs, vulnerabilites or even code smells that could lead to crashes. It is important to note that static analysis does not replace exception handling!
 
-## Exception does not cath exception(s)
+## Example Exception Handling that Does Not Catch Exception(s)
 
-While implementing exception handling we can face many difficulties. For example, writing exception handling does
-not guarantee that it will catch a method or function that we want to treat in a exceptional way. So, even our program
-has exception handling it's not a guarantee that it will catch exception(s).
+While implementing exception handling we can face many difficulties. For example, writing exception handling does not guarantee that it will catch a method or function that we want to treat in a exceptional way. So even though our program has exception handling, it's not a guarantee that it will catch exception(s).
 
-The following code example demonstrates a good example when the exception handling is used at the wrong place
+The following code example demonstrates a good example when the exception handling is used at the wrong place:
 
 ```python
 class NoExcept:
@@ -28,7 +19,6 @@ class NoExcept:
 
     def openFile(self):
         """Opening file."""
-
         with open(self.file, "r") as fn:
             try:
                 fn.read()
@@ -36,11 +26,14 @@ class NoExcept:
                 raise FileNotFoundError(f"Could not open {self.file}") from e
 ```
 
-## Undefined program
+## Detect Throws Exception Static and Dynamic Analysis Tool
 
-If M throws an exception on input I, then P(I) is undefined.
+This tool provides basic analysis for Python files to detect potential exceptions through both static (AST-based) and dynamic (execution-based) approaches. It can identify explicit raise statements, division by zero operations, and runtime exceptions that may occur during program execution.
 
-- P: Python program that takes I as an input as a string and return a string (SISO)
-- I: Input as a string
-- M: Main function
+This approach offers significant advantages over the previous group's regex-based approach because it provides both static and dynamic analysis. Rather than just checking if a file contains an except block, our approach gets closer to actually understanding the code's behavior by analyzing the abstract syntax tree and executing the code to detect real exception scenarios.
 
+### Usage
+
+```bash
+uv run main.py
+```
