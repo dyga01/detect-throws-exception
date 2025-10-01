@@ -1,6 +1,4 @@
-"""In this file we show an exception handling method that is implemented wrong"""
-
-
+"""Example where exception handling is implemented incorrectly."""
 
 class NoExcept:
     def __init__(self, file):
