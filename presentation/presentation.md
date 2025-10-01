@@ -13,7 +13,7 @@ On the other hand we have static analysis which can help in detecting bugs, vuln
 smells that could lead to crashes. It is important to note that static analysis does not replace exception
 handling!
 
-## Exception does not cath exception(s)
+## Exception does not catch errors
 
 While implementing exception handling we can face many difficulties. For example, writing exception handling does
 not guarantee that it will catch a method or function that we want to treat in a exceptional way. So, even our program
