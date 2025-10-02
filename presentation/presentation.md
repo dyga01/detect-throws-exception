@@ -28,12 +28,29 @@ class NoExcept:
 
 ## Detect Throws Exception Static and Dynamic Analysis Tool
 
-This tool provides basic analysis for Python files to detect potential exceptions through both static (AST-based) and dynamic (execution-based) approaches. It can identify explicit raise statements, division by zero operations, and runtime exceptions that may occur during program execution.
+- Provides basic analysis for Python files to detect potential exceptions through two approaches:
+  - Static analysis (AST-based)
+  - Dynamic analysis (execution-based)
 
-This approach offers significant advantages over the previous group's regex-based approach because it provides both static and dynamic analysis. Rather than just checking if a file contains an except block, our approach gets closer to actually understanding the code's behavior by analyzing the abstract syntax tree and executing the code to detect real exception scenarios.
-
-### Usage
+- Capabilities include:
+  - Identifying explicit raise statements
+  - Detecting division by zero operations
+  - Finding runtime exceptions that may occur during program execution
 
 ```bash
 uv run main.py
 ```
+
+## Advantages Over Previous Approaches
+
+- Combines both static and dynamic analysis methods
+- Goes beyond simple pattern matching (checking for except blocks via regex)
+- Executes code to detect real exception scenarios
+- Provides more accurate detection of potential exception conditions
+
+## Limitations
+
+- Dynamic analysis requires code execution, which may not be safe for all code
+- Cannot predict all possible runtime exceptions without comprehensive test cases
+- Static analysis may miss exceptions from external dependencies or libraries
+- Performance overhead when analyzing large codebases
