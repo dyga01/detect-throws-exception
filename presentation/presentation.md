@@ -30,6 +30,25 @@ class NoExcept:
                 raise FileNotFoundError(f"Could not open {self.file}") from e
 ```
 
+```
+exception$ uv run main.py
+Analysis results for test_files/divide_by_zero.py:
+Static findings: [('definite-raise', 'explicit raise at line 14')]
+Dynamic result: {'threw': False, 'exc_info': None, 'timed_out': False, 'stdout': ''}
+```
+
+Static Analysis: “There is a potential raise.” (false positives possible).
+
+Dynamic Analysis: “No exception was observed in this run.” (false negatives possible).
+
+## Similarity to Halting Problem and Rice's Theorem
+
+Do we know when the Halting Problem will halt?
+
+Do we know when a Python program will thow exception?
+
+Is a fully general exception detection is decidable?
+
 ## Detect Throws Exception Static and Dynamic Analysis Tool
 
 This tool provides basic analysis for Python files to detect potential exceptions through both static (AST-based) and dynamic (execution-based) approaches. It can identify explicit raise statements, division by zero operations, and runtime exceptions that may occur during program execution.

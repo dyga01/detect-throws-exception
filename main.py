@@ -161,7 +161,8 @@ if __name__ == "__main__":
     """Example usage of the DetectThrowsException tool."""
     # Divide by zero test case
     test_file = "test_files/divide_by_zero.py"
-    analyzer = DetectThrowsException(test_file)
+    test_file_exception = "test_files/exception.py"
+    analyzer = DetectThrowsException(test_file_exception)
     result = analyzer.analyze()
     print(f"Analysis results for {test_file}:")
     print(f"Static findings: {result['static_findings']}")
