@@ -6,11 +6,7 @@ Exception handling is the process of managing unexpected events (exceptions) occ
 
 On the other hand we have static analysis which can help in detecting bugs, vulnerabilites or even code smells that could lead to crashes. It is important to note that static analysis does not replace exception handling!
 
-<<<<<<< HEAD
-## Exception does not catch errors
-=======
 ## Example Exception Handling that Does Not Catch Exception(s)
->>>>>>> main
 
 While implementing exception handling we can face many difficulties. For example, writing exception handling does not guarantee that it will catch a method or function that we want to treat in a exceptional way. So even though our program has exception handling, it's not a guarantee that it will catch exception(s).
 
